@@ -12,9 +12,14 @@ import uvicorn
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
+
+# Set specific loggers to DEBUG level
+logging.getLogger("src.tools").setLevel(logging.DEBUG)
+logging.getLogger("src.tools.search").setLevel(logging.DEBUG)
+logging.getLogger("src.tools.decorators").setLevel(logging.DEBUG)
 
 logger = logging.getLogger(__name__)
 
@@ -41,9 +46,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--log-level",
         type=str,
-        default="info",
+        default="debug",
         choices=["debug", "info", "warning", "error", "critical"],
-        help="Log level (default: info)",
+        help="Log level (default: debug)",
     )
 
     args = parser.parse_args()
