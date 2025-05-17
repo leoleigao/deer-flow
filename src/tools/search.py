@@ -37,9 +37,7 @@ else:
 try:
     logger.debug("Initializing DuckDuckGo search tool...")
     LoggedDuckDuckGoSearch = create_logged_tool(DuckDuckGoSearchResults)
-    duckduckgo_search_tool = LoggedDuckDuckGoSearch(
-        max_results=SEARCH_MAX_RESULTS
-    )
+    duckduckgo_search_tool = LoggedDuckDuckGoSearch(max_results=SEARCH_MAX_RESULTS)
     logger.debug("DuckDuckGo search tool initialized successfully")
 except Exception as e:
     logger.error(f"Error initializing DuckDuckGo search tool: {str(e)}", exc_info=True)
