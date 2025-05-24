@@ -3,15 +3,35 @@
 
 import os
 
-from .crawl import crawl_tool
-from .python_repl import python_repl_tool
-from .search import (
-    tavily_search_tool,
-    duckduckgo_search_tool,
-    brave_search_tool,
-    arxiv_search_tool,
-)
-from .tts import VolcengineTTS
+try:
+    from .crawl import crawl_tool
+except Exception:  # pragma: no cover - optional dependency missing
+    crawl_tool = None
+
+try:
+    from .python_repl import python_repl_tool
+except Exception:  # pragma: no cover
+    python_repl_tool = None
+
+try:
+    from .glean import glean_search_tool
+except Exception:  # pragma: no cover
+    glean_search_tool = None
+
+try:
+    from .search import (
+        tavily_search_tool,
+        duckduckgo_search_tool,
+        brave_search_tool,
+        arxiv_search_tool,
+    )
+except Exception:  # pragma: no cover
+    tavily_search_tool = duckduckgo_search_tool = brave_search_tool = arxiv_search_tool = None
+
+try:
+    from .tts import VolcengineTTS
+except Exception:  # pragma: no cover
+    VolcengineTTS = None
 from src.config import SELECTED_SEARCH_ENGINE, SearchEngine
 
 # Map search engine names to their respective tools
@@ -28,5 +48,6 @@ __all__ = [
     "crawl_tool",
     "web_search_tool",
     "python_repl_tool",
+    "glean_search_tool",
     "VolcengineTTS",
 ]

@@ -4,7 +4,11 @@
 import re
 from urllib.parse import urljoin
 
-from markdownify import markdownify as md
+try:
+    from markdownify import markdownify as md
+except Exception:  # pragma: no cover - fallback when markdownify is missing
+    def md(html: str) -> str:
+        return html
 
 
 class Article:

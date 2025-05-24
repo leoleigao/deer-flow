@@ -1,0 +1,7 @@
+{
+  "table": "orders",
+  "docs": [
+    "Contains purchase orders with totals.",
+    "Columns: id, user_id, order_date, total"
+  ]
+}

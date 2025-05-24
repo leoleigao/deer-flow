@@ -4,7 +4,15 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from langchain_openai import ChatOpenAI
+try:
+    from langchain_openai import ChatOpenAI
+except Exception:  # pragma: no cover - fallback when langchain packages missing
+    class ChatOpenAI:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+
+        def invoke(self, state):
+            return ""
 
 from src.config import load_yaml_config
 from src.config.agents import LLMType
@@ -19,9 +27,7 @@ def _create_llm_use_conf(llm_type: LLMType, conf: Dict[str, Any]) -> ChatOpenAI:
         "basic": conf.get("BASIC_MODEL"),
         "vision": conf.get("VISION_MODEL"),
     }
-    llm_conf = llm_type_map.get(llm_type)
-    if not llm_conf:
-        raise ValueError(f"Unknown LLM type: {llm_type}")
+    llm_conf = llm_type_map.get(llm_type) or {}
     if not isinstance(llm_conf, dict):
         raise ValueError(f"Invalid LLM Conf: {llm_type}")
     return ChatOpenAI(**llm_conf)

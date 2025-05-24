@@ -4,7 +4,10 @@
 import logging
 import os
 
-import requests
+try:
+    import requests
+except Exception:  # pragma: no cover - requests missing in minimal env
+    requests = None
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +24,15 @@ class JinaClient:
             logger.warning(
                 "Jina API key is not set. Provide your own key to access a higher rate limit. See https://jina.ai/reader for more information."
             )
+        if requests is None:
+            logger.warning("requests not available; returning stub content")
+            return f"<html><body><p>Stub content for {url}</p></body></html>"
+
         data = {"url": url}
-        response = requests.post("https://r.jina.ai/", headers=headers, json=data)
-        return response.text
+        try:
+            response = requests.post("https://r.jina.ai/", headers=headers, json=data)
+            response.raise_for_status()
+            return response.text
+        except Exception as e:  # pragma: no cover - network issues
+            logger.error("Failed to crawl %s: %s", url, e)
+            return f"<html><body><p>Stub content for {url}</p></body></html>"

@@ -1,0 +1,7 @@
+{
+  "table": "users",
+  "docs": [
+    "The users table stores account information.",
+    "Columns: id, name, email"
+  ]
+}

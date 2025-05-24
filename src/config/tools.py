@@ -3,7 +3,11 @@
 
 import os
 import enum
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except Exception:  # pragma: no cover - dotenv may be missing
+    def load_dotenv(*args, **kwargs):
+        return False
 
 load_dotenv()
 

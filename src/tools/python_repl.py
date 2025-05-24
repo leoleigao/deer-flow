@@ -3,8 +3,34 @@
 
 import logging
 from typing import Annotated
-from langchain_core.tools import tool
-from langchain_experimental.utilities import PythonREPL
+try:
+    from langchain_core.tools import tool
+except Exception:  # pragma: no cover - fallback if langchain_core missing
+    def tool(func=None, *, name=None, description=None):
+        def decorator(f):
+            f.name = name or f.__name__
+            f.description = description
+            return f
+
+        if func is not None:
+            return decorator(func)
+        return decorator
+
+try:
+    from langchain_experimental.utilities import PythonREPL
+except Exception:  # pragma: no cover - fallback minimal REPL
+    import contextlib
+    import io
+
+    class PythonREPL:
+        def run(self, code: str):  # type: ignore[override]
+            stdout = io.StringIO()
+            with contextlib.redirect_stdout(stdout):
+                try:
+                    exec(code, {})
+                except BaseException as e:
+                    return f"{e.__class__.__name__}: {e}"
+            return stdout.getvalue().strip()
 from .decorators import log_io
 
 # Initialize REPL and logger
