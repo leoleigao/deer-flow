@@ -188,6 +188,7 @@ SEARCH_API=tavily
   - Web search via Tavily, Brave Search and more
   - Crawling with Jina
   - Advanced content extraction
+  - Internal table research via a Glean-powered agent
 
 - 🔗 **MCP Seamless Integration**
   - Expand capabilities for private domain access, knowledge graph, web browsing and more

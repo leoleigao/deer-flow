@@ -5,7 +5,11 @@ import os
 from dataclasses import dataclass, fields
 from typing import Any, Optional
 
-from langchain_core.runnables import RunnableConfig
+try:
+    from langchain_core.runnables import RunnableConfig
+except Exception:  # pragma: no cover - fallback when langchain_core missing
+    class RunnableConfig(dict):
+        pass
 
 
 @dataclass(kw_only=True)

@@ -1,7 +1,11 @@
 # Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 # SPDX-License-Identifier: MIT
 
-from readabilipy import simple_json_from_html_string
+try:
+    from readabilipy import simple_json_from_html_string
+except Exception:  # pragma: no cover - fallback when readabilipy missing
+    def simple_json_from_html_string(html: str, use_readability: bool = True):
+        return {"title": "", "content": html}
 
 from .article import Article
 

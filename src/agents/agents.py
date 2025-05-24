@@ -8,6 +8,7 @@ from src.tools import (
     crawl_tool,
     python_repl_tool,
     web_search_tool,
+    glean_search_tool,
 )
 
 from src.llms.llm import get_llm_by_type
@@ -30,3 +31,11 @@ research_agent = create_agent(
     "researcher", "researcher", [web_search_tool, crawl_tool], "researcher"
 )
 coder_agent = create_agent("coder", "coder", [python_repl_tool], "coder")
+
+# Table deep research agent using Glean tool
+table_research_agent = create_agent(
+    "table_researcher",
+    "researcher",
+    [glean_search_tool],
+    "table_researcher",
+)

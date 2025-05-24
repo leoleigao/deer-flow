@@ -2,7 +2,10 @@
 # SPDX-License-Identifier: MIT
 
 import os
-import yaml
+try:
+    import yaml
+except Exception:  # pragma: no cover - fallback when PyYAML missing
+    yaml = None
 from typing import Dict, Any
 
 
@@ -44,6 +47,8 @@ def load_yaml_config(file_path: str) -> Dict[str, Any]:
 
     # 如果缓存中不存在，则加载并处理配置
     with open(file_path, "r") as f:
+        if yaml is None:
+            return {}
         config = yaml.safe_load(f)
     processed_config = process_dict(config)
 

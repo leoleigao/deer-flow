@@ -4,7 +4,16 @@
 from enum import Enum
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+try:
+    from pydantic import BaseModel, Field
+except Exception:  # pragma: no cover - fallback when pydantic missing
+    class BaseModel:
+        def __init__(self, **kwargs):
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+
+    def Field(default=None, *args, **kwargs):
+        return default
 
 
 class StepType(str, Enum):

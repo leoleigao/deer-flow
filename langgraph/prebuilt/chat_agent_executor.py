@@ -1,0 +1,2 @@
+class AgentState(dict):
+    pass

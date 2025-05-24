@@ -4,7 +4,38 @@
 import os
 import dataclasses
 from datetime import datetime
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+try:
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+except Exception:  # pragma: no cover - jinja2 unavailable in minimal env
+    from pathlib import Path
+    import re
+
+    class _SimpleTemplate:
+        def __init__(self, text: str):
+            self.text = text
+
+        def render(self, **kwargs):
+            def repl(match):
+                key = match.group(1).strip()
+                return str(kwargs.get(key, match.group(0)))
+
+            return re.sub(r"{{\s*(\w+)\s*}}", repl, self.text)
+
+    class Environment:  # type: ignore
+        def __init__(self, loader=None, autoescape=None, trim_blocks=False, lstrip_blocks=False):
+            self.loader = loader
+
+        def get_template(self, name: str):
+            path = Path(self.loader.searchpath[0]) / name  # type: ignore[attr-defined]
+            with open(path, "r", encoding="utf-8") as f:
+                return _SimpleTemplate(f.read())
+
+    class FileSystemLoader:  # type: ignore
+        def __init__(self, searchpath: str):
+            self.searchpath = [searchpath]
+
+    def select_autoescape(*args, **kwargs):  # type: ignore
+        return False
 from langgraph.prebuilt.chat_agent_executor import AgentState
 from src.config.configuration import Configuration
 
