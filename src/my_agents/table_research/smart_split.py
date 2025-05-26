@@ -20,24 +20,19 @@ def smart_split(
     if chunk_tokens <= 0:
         raise ValueError("chunk_tokens must be positive")
 
-    parts = text.split("\n\n")
+    words = text.split()
     current: list[str] = []
     tokens = 0
-    for part in parts:
-        length = tiktoken_len(part)
-        # part itself exceeds budget
-        if length > chunk_tokens:
+
+    for word in words:
+        word_tokens = tiktoken_len(word)
+        if tokens + word_tokens > chunk_tokens:
             if current:
-                yield "\n\n".join(current)
-                current, tokens = [], 0
-            yield part
-            continue
-        if tokens + length > chunk_tokens:
-            if current:
-                yield "\n\n".join(current)
-            current, tokens = [part], length
+                yield " ".join(current)
+            current, tokens = [word], word_tokens
         else:
-            current.append(part)
-            tokens += length
+            current.append(word)
+            tokens += word_tokens
+
     if current:
-        yield "\n\n".join(current)
+        yield " ".join(current)
