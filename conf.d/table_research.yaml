@@ -1,0 +1,8 @@
+table_research:
+  llm:
+    model: gpt-4o-mini
+    temperature: 0.1
+  glean:
+    use_stub: ${USE_GLEAN_STUB}
+  max_docs: 12
+  chunk_tokens: 2048 
