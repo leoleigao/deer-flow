@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop, feature/table-deep-research ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov ruff mypy black
+        
+    - name: Check for forbidden imports
+      run: |
+        if grep -r "GleanAPIClient" src/; then
+          echo "Error: Found forbidden import 'GleanAPIClient'"
+          exit 1
+        fi
+        
+    - name: Run linting
+      run: |
+        ruff check src/ tests/
+        black --check src/ tests/
+        
+    - name: Run type checking
+      run: |
+        mypy src/ tests/ --strict
+        
+    - name: Run tests with coverage
+      run: |
+        pytest tests/ --cov=src/ --cov-report=xml --cov-fail-under=90
+        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true 

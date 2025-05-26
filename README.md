@@ -557,3 +557,60 @@ Your unwavering commitment and expertise have been the driving force behind Deer
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=bytedance/deer-flow&type=Date)](https://star-history.com/#bytedance/deer-flow&Date)
+
+## Table Research Feature
+
+The table research feature provides a way to search and analyze table metadata using a stub-based approach. This allows for development and testing without requiring access to the production Glean API.
+
+### Fixture Schema
+
+Table metadata is stored in JSON fixture files under `tests/fixtures/glean/`. Each file is named `<table_name>.json` and contains an array of documents. Every document must include these mandatory fields:
+
+```json
+{
+  "doc_id": "unique.identifier",
+  "title": "Human readable title",
+  "doc_type": "schema|wiki|dashboard|runbook|lineage|notebook",
+  "table_name": "schema.table_name",
+  "description": "Short summary",
+  "tags": ["tag1", "tag2"],
+  "url": "https://example.com/path"
+}
+```
+
+Optional fields that add realism:
+- `columns`: Array of column definitions for schema documents
+- `lineage`: Upstream/downstream table relationships
+- `metrics`: Array of metrics for dashboard documents
+- `sample_query`: Example query for schema/wiki documents
+- `author`: Document author
+- `created_at`: Creation timestamp
+- `last_updated`: Last update timestamp
+- `row_count`: Number of rows in the table
+
+### Using the Search Tool
+
+The `GleanSearch` tool provides a simple interface to search table metadata:
+
+```python
+from src.my_agents.table_research.tools import GleanSearch
+
+# Initialize the search tool
+search = GleanSearch()
+
+# Search for a specific table
+results = search.search("marketing.CampaignSummary")
+
+# Limit the number of results
+top_3_results = search.search("marketing.CampaignSummary", top_k=3)
+```
+
+The tool operates in stub mode by default (`USE_GLEAN_STUB=true`). This ensures no real API calls are made during development.
+
+### Development Guidelines
+
+1. Always use stub mode during development
+2. Keep fixture files up to date with realistic metadata
+3. Maintain test coverage above 90%
+4. Follow the document type conventions
+5. Ensure all required fields are present in fixture documents
