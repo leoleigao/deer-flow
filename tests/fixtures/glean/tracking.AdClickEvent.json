@@ -1,0 +1,30 @@
+{
+  "table_name": "tracking.AdClickEvent",
+  "description": "Sample table for tracking ad click events",
+  "columns": [
+    {
+      "name": "event_id",
+      "type": "STRING",
+      "description": "Unique identifier for the click event"
+    },
+    {
+      "name": "user_id",
+      "type": "STRING", 
+      "description": "User who clicked the ad"
+    },
+    {
+      "name": "ad_id",
+      "type": "STRING",
+      "description": "Advertisement identifier"
+    },
+    {
+      "name": "timestamp",
+      "type": "TIMESTAMP",
+      "description": "When the click occurred"
+    }
+  ],
+  "sample_queries": [
+    "SELECT COUNT(*) FROM tracking.AdClickEvent WHERE DATE(timestamp) = CURRENT_DATE()",
+    "SELECT user_id, COUNT(*) as clicks FROM tracking.AdClickEvent GROUP BY user_id"
+  ]
+} 
