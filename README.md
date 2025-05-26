@@ -88,6 +88,10 @@ uv sync
 # volcengine TTS: Add your TTS credentials if you have them
 cp .env.example .env
 
+# Fixture-based stub mode is enabled by default. Leave `USE_GLEAN_STUB=true` in
+# your `.env` file to load search results from `tests/fixtures/glean/` instead of
+# making real Glean API calls.
+
 # See the 'Supported Search Engines' and 'Text-to-Speech Integration' sections below for all available options
 
 # Configure conf.yaml for your LLM model and API keys

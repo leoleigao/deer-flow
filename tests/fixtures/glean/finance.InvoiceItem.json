@@ -1,0 +1,47 @@
+[
+  {
+    "doc_id": "finance.InvoiceItem.schema",
+    "title": "finance.InvoiceItem Schema",
+    "doc_type": "schema",
+    "table_name": "finance.InvoiceItem",
+    "description": "Schema for invoice items",
+    "tags": ["finance"],
+    "url": "https://confluence.example.com/finance/InvoiceItem/schema",
+    "author": "fin_analyst",
+    "created_at": "2024-02-15",
+    "last_updated": "2024-05-22",
+    "row_count": 75000,
+    "columns": [
+      {"name": "invoice_id", "type": "STRING", "description": "Invoice id"},
+      {"name": "item_id", "type": "STRING", "description": "Item"},
+      {"name": "amount", "type": "DECIMAL", "description": "Amount"}
+    ],
+    "sample_query": "SELECT SUM(amount) FROM finance.InvoiceItem"
+  },
+  {
+    "doc_id": "finance.InvoiceItem.runbook",
+    "title": "InvoiceItem Pipeline Runbook",
+    "doc_type": "runbook",
+    "table_name": "finance.InvoiceItem",
+    "description": "Operations guide",
+    "tags": ["etl", "runbook"],
+    "url": "https://confluence.example.com/finance/InvoiceItem/runbook",
+    "author": "fin_engineer",
+    "created_at": "2024-03-01",
+    "last_updated": "2024-04-20",
+    "sample_query": "SELECT COUNT(*) FROM finance.InvoiceItem"
+  },
+  {
+    "doc_id": "finance.InvoiceItem.wiki",
+    "title": "InvoiceItem Wiki",
+    "doc_type": "wiki",
+    "table_name": "finance.InvoiceItem",
+    "description": "Usage info",
+    "tags": ["finance", "reference"],
+    "url": "https://confluence.example.com/finance/InvoiceItem/wiki",
+    "author": "fin_ops",
+    "created_at": "2024-02-20",
+    "last_updated": "2024-05-18",
+    "sample_query": "SELECT * FROM finance.InvoiceItem LIMIT 5"
+  }
+]

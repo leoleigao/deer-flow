@@ -1,30 +1,76 @@
-{
-  "table_name": "tracking.AdClickEvent",
-  "description": "Sample table for tracking ad click events",
-  "columns": [
-    {
-      "name": "event_id",
-      "type": "STRING",
-      "description": "Unique identifier for the click event"
-    },
-    {
-      "name": "user_id",
-      "type": "STRING", 
-      "description": "User who clicked the ad"
-    },
-    {
-      "name": "ad_id",
-      "type": "STRING",
-      "description": "Advertisement identifier"
-    },
-    {
-      "name": "timestamp",
-      "type": "TIMESTAMP",
-      "description": "When the click occurred"
+[
+  {
+    "doc_id": "tracking.AdClickEvent.schema",
+    "title": "tracking.AdClickEvent Schema",
+    "doc_type": "schema",
+    "table_name": "tracking.AdClickEvent",
+    "description": "Schema for ad click events",
+    "tags": ["ads", "tracking"],
+    "url": "https://confluence.example.com/tracking/AdClickEvent/schema",
+    "author": "analyst1",
+    "created_at": "2024-01-10",
+    "last_updated": "2024-06-01",
+    "row_count": 1000000,
+    "columns": [
+      {"name": "event_id", "type": "STRING", "description": "Unique event id"},
+      {"name": "user_id", "type": "STRING", "description": "User identifier"},
+      {"name": "ad_id", "type": "STRING", "description": "Advertisement"},
+      {"name": "timestamp", "type": "TIMESTAMP", "description": "Click time"}
+    ],
+    "sample_query": "SELECT COUNT(*) FROM tracking.AdClickEvent WHERE DATE(timestamp)=CURRENT_DATE()"
+  },
+  {
+    "doc_id": "tracking.AdClickEvent.wiki",
+    "title": "Ad Click Event Usage Wiki",
+    "doc_type": "wiki",
+    "table_name": "tracking.AdClickEvent",
+    "description": "Business context and sample queries",
+    "tags": ["ads", "reference"],
+    "url": "https://confluence.example.com/tracking/AdClickEvent/wiki",
+    "author": "analyst2",
+    "created_at": "2024-01-15",
+    "last_updated": "2024-05-20",
+    "sample_query": "SELECT ad_id, COUNT(*) FROM tracking.AdClickEvent GROUP BY ad_id"
+  },
+  {
+    "doc_id": "tracking.AdClickEvent.lineage",
+    "title": "Ad Click Event Lineage",
+    "doc_type": "lineage",
+    "table_name": "tracking.AdClickEvent",
+    "description": "Upstream and downstream dependencies",
+    "tags": ["lineage"],
+    "url": "https://confluence.example.com/tracking/AdClickEvent/lineage",
+    "author": "data_engineer1",
+    "created_at": "2024-01-12",
+    "last_updated": "2024-06-05",
+    "lineage": {
+      "upstream": ["raw.AdClicks"],
+      "downstream": ["mart.AdClickDaily"]
     }
-  ],
-  "sample_queries": [
-    "SELECT COUNT(*) FROM tracking.AdClickEvent WHERE DATE(timestamp) = CURRENT_DATE()",
-    "SELECT user_id, COUNT(*) as clicks FROM tracking.AdClickEvent GROUP BY user_id"
-  ]
-} 
+  },
+  {
+    "doc_id": "tracking.AdClickEvent.dashboard",
+    "title": "Ad Click Metrics Dashboard",
+    "doc_type": "dashboard",
+    "table_name": "tracking.AdClickEvent",
+    "description": "Grafana dashboard for ad click metrics",
+    "tags": ["metrics", "dashboard"],
+    "url": "https://grafana.example.com/d/ads/clicks",
+    "author": "analyst3",
+    "created_at": "2024-03-01",
+    "last_updated": "2024-05-30",
+    "metrics": ["CTR", "CPA"]
+  },
+  {
+    "doc_id": "tracking.AdClickEvent.notebook",
+    "title": "Ad Click Exploratory Notebook",
+    "doc_type": "notebook",
+    "table_name": "tracking.AdClickEvent",
+    "description": "Jupyter notebook for deep dive",
+    "tags": ["analysis"],
+    "url": "https://notebooks.example.com/tracking/AdClickEvent-analysis",
+    "author": "analyst4",
+    "created_at": "2024-02-10",
+    "last_updated": "2024-05-18"
+  }
+]

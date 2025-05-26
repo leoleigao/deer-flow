@@ -1,0 +1,64 @@
+[
+  {
+    "doc_id": "tracking.PageView.schema",
+    "title": "tracking.PageView Schema",
+    "doc_type": "schema",
+    "table_name": "tracking.PageView",
+    "description": "Schema for page view events",
+    "tags": ["tracking"],
+    "url": "https://confluence.example.com/tracking/PageView/schema",
+    "author": "analyst1",
+    "created_at": "2024-01-05",
+    "last_updated": "2024-05-25",
+    "row_count": 5000000,
+    "columns": [
+      {"name": "event_id", "type": "STRING", "description": "Event id"},
+      {"name": "user_id", "type": "STRING", "description": "User"},
+      {"name": "page", "type": "STRING", "description": "Page path"},
+      {"name": "timestamp", "type": "TIMESTAMP", "description": "View time"}
+    ],
+    "sample_query": "SELECT page, COUNT(*) FROM tracking.PageView GROUP BY page"
+  },
+  {
+    "doc_id": "tracking.PageView.runbook",
+    "title": "PageView ETL Runbook",
+    "doc_type": "runbook",
+    "table_name": "tracking.PageView",
+    "description": "Operational runbook for pipeline",
+    "tags": ["etl", "runbook"],
+    "url": "https://confluence.example.com/tracking/PageView/runbook",
+    "author": "ops1",
+    "created_at": "2024-02-01",
+    "last_updated": "2024-04-15",
+    "sample_query": "SELECT COUNT(*) FROM tracking.PageView WHERE timestamp >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)"
+  },
+  {
+    "doc_id": "tracking.PageView.wiki",
+    "title": "PageView Usage Wiki",
+    "doc_type": "wiki",
+    "table_name": "tracking.PageView",
+    "description": "Business context for page views",
+    "tags": ["tracking", "reference"],
+    "url": "https://confluence.example.com/tracking/PageView/wiki",
+    "author": "analyst2",
+    "created_at": "2024-01-20",
+    "last_updated": "2024-05-10",
+    "sample_query": "SELECT user_id, COUNT(*) FROM tracking.PageView GROUP BY user_id"
+  },
+  {
+    "doc_id": "tracking.PageView.lineage",
+    "title": "PageView Lineage",
+    "doc_type": "lineage",
+    "table_name": "tracking.PageView",
+    "description": "Upstream/downstream lineage",
+    "tags": ["lineage"],
+    "url": "https://confluence.example.com/tracking/PageView/lineage",
+    "author": "data_engineer2",
+    "created_at": "2024-01-08",
+    "last_updated": "2024-06-03",
+    "lineage": {
+      "upstream": ["raw.PageViews"],
+      "downstream": ["mart.PageViewDaily"]
+    }
+  }
+]

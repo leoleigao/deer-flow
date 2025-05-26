@@ -1,0 +1,50 @@
+[
+  {
+    "doc_id": "event.FunnelStep.schema",
+    "title": "event.FunnelStep Schema",
+    "doc_type": "schema",
+    "table_name": "event.FunnelStep",
+    "description": "Schema for funnel step events",
+    "tags": ["event"],
+    "url": "https://confluence.example.com/event/FunnelStep/schema",
+    "author": "event_team",
+    "created_at": "2024-04-01",
+    "last_updated": "2024-05-20",
+    "row_count": 150000,
+    "columns": [
+      {"name": "session_id", "type": "STRING", "description": "Session"},
+      {"name": "step", "type": "INT", "description": "Step"},
+      {"name": "timestamp", "type": "TIMESTAMP", "description": "Step time"}
+    ],
+    "sample_query": "SELECT step, COUNT(*) FROM event.FunnelStep GROUP BY step"
+  },
+  {
+    "doc_id": "event.FunnelStep.wiki",
+    "title": "FunnelStep Wiki",
+    "doc_type": "wiki",
+    "table_name": "event.FunnelStep",
+    "description": "Funnel step documentation",
+    "tags": ["event", "reference"],
+    "url": "https://confluence.example.com/event/FunnelStep/wiki",
+    "author": "event_ops",
+    "created_at": "2024-04-10",
+    "last_updated": "2024-05-25",
+    "sample_query": "SELECT COUNT(*) FROM event.FunnelStep"
+  },
+  {
+    "doc_id": "event.FunnelStep.lineage",
+    "title": "FunnelStep Lineage",
+    "doc_type": "lineage",
+    "table_name": "event.FunnelStep",
+    "description": "Lineage for funnel step",
+    "tags": ["lineage"],
+    "url": "https://confluence.example.com/event/FunnelStep/lineage",
+    "author": "data_engineer4",
+    "created_at": "2024-04-05",
+    "last_updated": "2024-06-02",
+    "lineage": {
+      "upstream": ["raw.FunnelEvents"],
+      "downstream": ["mart.FunnelAnalysis"]
+    }
+  }
+]
