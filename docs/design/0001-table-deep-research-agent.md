@@ -87,6 +87,25 @@ Key points:
 * `tests/fixtures/glean/` for stub data
 * CI pipeline in `.github/workflows/ci.yml`
 
+### Fixture Schema
+
+Stub search results live under `tests/fixtures/glean/`. Each file is named
+`<table_name>.json` and contains an array of documents. Every document carries
+these mandatory fields:
+
+```
+doc_id        # unique across the corpus
+title         # human readable title
+doc_type      # schema | wiki | dashboard | runbook | lineage | notebook
+table_name    # the table it references
+description   # short summary
+tags          # list of strings
+url           # link to the source (Confluence, Grafana, etc.)
+```
+
+Optional blocks (e.g. `columns`, `lineage`, `metrics`, `sample_query`) add
+realism so later agents can reason about freshness or popularity.
+
 ---
 
 > **Note**: This ADR is a concise snapshot of the TDR Agents context and the key architecture choices. For detailed implementation steps (including code snippets, prompts, node definitions), refer to the “Table-Deep-Research Agent — Detailed Design & Implementation Guide” and your repository’s `src/my_agents/table_research/` folder.
