@@ -1,0 +1,5 @@
+---
+description: project design & feature docs
+autoApplyGlobs: ["docs/design/**", "docs/adr/**"]
+maxTokens: 10000   # optional – cap how much context the docs can consume
+---
