@@ -47,7 +47,7 @@ test = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-addopts = "-v --cov=src --cov-report=term-missing"
+addopts = "-v"
 filterwarnings = [
     "ignore::DeprecationWarning",
     "ignore::UserWarning",
