@@ -6,7 +6,6 @@ from fastapi import APIRouter
 
 from my_agents.table_research import run_table_deep_research
 
-
 table_guide_router = APIRouter()
 
 

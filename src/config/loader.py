@@ -5,14 +5,37 @@ import os
 import yaml
 from typing import Dict, Any
 
+# Try to load .env file if python-dotenv is available
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()  # Load .env file from current directory
+except ImportError:
+    # python-dotenv not installed, skip .env loading
+    pass
+
 
 def replace_env_vars(value: str) -> str:
     """Replace environment variables in string values."""
     if not isinstance(value, str):
         return value
+
+    # Handle ${VAR} format
+    if value.startswith("${") and value.endswith("}"):
+        env_var = value[2:-1]
+        # For USE_GLEAN_STUB, default to "true" if not set
+        if env_var == "USE_GLEAN_STUB":
+            return os.getenv(env_var, "true")
+        return os.getenv(env_var, value)
+
+    # Handle $VAR format
     if value.startswith("$"):
         env_var = value[1:]
+        # For USE_GLEAN_STUB, default to "true" if not set
+        if env_var == "USE_GLEAN_STUB":
+            return os.getenv(env_var, "true")
         return os.getenv(env_var, value)
+
     return value
 
 

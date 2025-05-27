@@ -1,5 +1,5 @@
 # Overview
-Provide a short introduction for **{{ table_name }}** using {{ locale }}.
+Provide a short introduction for **demo.Table** using en-US.
 
 # Key Columns
 Summarise doc_insights about important fields.
