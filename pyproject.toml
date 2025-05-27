@@ -22,7 +22,7 @@ dependencies = [
     "uvicorn>=0.27.1",
     "sse-starlette>=1.6.5",
     "pandas>=2.2.3",
-    "numpy>=2.2.3",
+    "numpy>=2.0.0",
     "yfinance>=0.2.54",
     "litellm>=1.63.11",
     "json-repair>=0.7.0",
@@ -30,8 +30,6 @@ dependencies = [
     "duckduckgo-search>=8.0.0",
     "inquirerpy>=0.3.4",
     "arxiv>=2.2.0",
-    "mcp>=1.6.0",
-    "langchain-mcp-adapters>=0.0.9",
 ]
 
 [project.optional-dependencies]

@@ -8,6 +8,7 @@ import logging
 import os
 from pathlib import Path
 from typing import Any
+from jinja2 import Environment, FileSystemLoader
 
 try:
     from langgraph.prebuilt import agent_node
@@ -25,9 +26,16 @@ from .smart_split import smart_split
 from .merge_insights import merge_insights
 from .tools import GleanSearch
 from .utils import log_stub_once
-from src.prompts.template import apply_prompt_template
 
 logger = logging.getLogger(__name__)
+
+# Create custom environment for my_agents prompts
+my_agents_env = Environment(
+    loader=FileSystemLoader(str(Path("prompts"))),
+    autoescape=False,
+    trim_blocks=True,
+    lstrip_blocks=True,
+)
 
 
 @agent_node
@@ -60,17 +68,28 @@ class TableResearcher:
 
         async def run_chunk(chunk: str) -> dict[str, Any]:
             async with self.semaphore:
-                messages = apply_prompt_template(
-                    "my_agents/table/glean_reader",
-                    {
-                        "messages": [{"role": "user", "content": chunk}],
-                        "table_name": table_name,
-                        "chunk_tokens": self.cfg.get("chunk_tokens"),
-                    },
+                # Use custom template loader
+                template = my_agents_env.get_template("my_agents/table/glean_reader.md")
+                prompt = template.render(
+                    table_name=table_name,
+                    chunk_tokens=self.cfg.get("chunk_tokens"),
                 )
+                messages = [
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": chunk},
+                ]
                 resp = await self.llm.ainvoke(messages)
                 try:
-                    return json.loads(resp.content)
+                    content = resp.content
+                    # Remove markdown code blocks if present
+                    if content.startswith("```json"):
+                        content = content[7:]
+                    if content.startswith("```"):
+                        content = content[3:]
+                    if content.endswith("```"):
+                        content = content[:-3]
+                    content = content.strip()
+                    return json.loads(content)
                 except Exception:
                     return {"insights": [], "usage_examples": []}
 

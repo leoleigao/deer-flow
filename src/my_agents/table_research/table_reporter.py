@@ -43,18 +43,24 @@ class TableReporter:
         log_stub_once(logger)
         table_name = state.get("table_name", "unknown")
         locale = state.get("locale", "en-US")
-        report_parts = state.get("report_parts")
+        report_parts = state.get("report_parts", {})
 
         if not report_parts:
             guide = "No insights found\n"
         else:
+            # Ensure all expected template variables have defaults
+            template_context = {
+                "table_name": table_name,
+                "locale": locale,
+                "key_columns": report_parts.get("key_columns", []),
+                "business_meanings": report_parts.get("business_meanings", []),
+                "gotchas": report_parts.get("gotchas", []),
+                "sample_queries": report_parts.get("sample_queries", []),
+            }
+
             if Environment is None:
                 guide = TEMPLATE_PATH.read_text()
-                for key, val in {
-                    "table_name": table_name,
-                    "locale": locale,
-                    **report_parts,
-                }.items():
+                for key, val in template_context.items():
                     guide = guide.replace(f"{{{{ {key} }}}}", str(val))
             else:
                 env = Environment(
@@ -65,9 +71,7 @@ class TableReporter:
                     lstrip_blocks=True,
                 )
                 template = env.get_template(TEMPLATE_PATH.name)
-                guide = template.render(
-                    table_name=table_name, locale=locale, **report_parts
-                )
+                guide = template.render(**template_context)
 
             guide = guide.replace("# Key Columns", "## Key Columns")
             if mdformat is not None:
@@ -79,6 +83,6 @@ class TableReporter:
                 guide += "\n"
 
         result = dict(state)
-        result["markdown_report"] = guide
+        result["table_guide_md"] = guide
         logger.info(f"[Reporter] Assembled guide for {table_name} ({len(guide)} chars)")
         return result

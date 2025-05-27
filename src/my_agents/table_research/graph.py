@@ -6,6 +6,7 @@ import logging
 import time
 from dataclasses import dataclass
 from typing import Any
+import asyncio
 
 try:
     from langgraph.graph import END, START, StateGraph
@@ -30,7 +31,9 @@ except Exception:  # pragma: no cover - fallback when langgraph not installed
         def add_edge(self, *_args, **_kwargs):
             pass
 
-        def compile(self, max_parallel: int | None = None):  # pragma: no cover - simple stub
+        def compile(
+            self, max_parallel: int | None = None
+        ):  # pragma: no cover - simple stub
             return _DummyWorkflow(self._nodes)
 
     START = END = None  # type: ignore
@@ -53,7 +56,7 @@ class TableResearchState:
     doc_chunks: list[str] | None = None
     insights: dict[str, Any] | None = None
     report_parts: dict[str, Any] | None = None
-    markdown_report: str | None = None
+    table_guide_md: str | None = None
 
 
 def build_graph(max_parallel: int = 4):
@@ -62,19 +65,35 @@ def build_graph(max_parallel: int = 4):
     researcher = TableResearcher()
     reporter = TableReporter()
 
+    async def planner_node(state: TableResearchState) -> dict:
+        result = await planner({"table_name": state.table_name})
+        return result
+
+    async def researcher_node(state: TableResearchState) -> dict:
+        result = await researcher(
+            {"table_name": state.table_name, "plan": state.plan or []}
+        )
+        return result
+
+    def reporter_node(state: TableResearchState) -> dict:
+        result = reporter(
+            {"table_name": state.table_name, "report_parts": state.report_parts or {}}
+        )
+        return result
+
     builder = StateGraph(TableResearchState)
-    builder.add_node("planner", planner)
-    builder.add_node("researcher", researcher)
-    builder.add_node("reporter", reporter)
+    builder.add_node("planner", planner_node)
+    builder.add_node("researcher", researcher_node)
+    builder.add_node("reporter", reporter_node)
     builder.add_edge(START, "planner")
     builder.add_edge("planner", "researcher")
     builder.add_edge("researcher", "reporter")
     builder.add_edge("reporter", END)
-    return builder.compile(max_parallel=max_parallel)
+    return builder.compile()
 
 
-def run_graph(table_name: str, *, max_docs: int | None = None) -> str:
-    """Execute the graph and return the Markdown report."""
+async def arun_graph(table_name: str, *, max_docs: int | None = None) -> str:
+    """Async: Execute the graph and return the Markdown report."""
     conf = load_yaml_config("conf.d/table_research.yaml").get("table_research", {})
     if max_docs is not None:
         conf["max_docs"] = max_docs
@@ -88,8 +107,12 @@ def run_graph(table_name: str, *, max_docs: int | None = None) -> str:
 
     graph = build_graph()
     start = time.monotonic()
-    result = graph.invoke({"table_name": table_name})
+    result = await graph.ainvoke({"table_name": table_name})
     elapsed = time.monotonic() - start
     logger.info("Generated guide for %s in %.2fs", table_name, elapsed)
-    return result.get("markdown_report", "")
+    return result.get("table_guide_md", "")
 
+
+def run_graph(table_name: str, *, max_docs: int | None = None) -> str:
+    """Sync: Execute the graph and return the Markdown report."""
+    return asyncio.run(arun_graph(table_name, max_docs=max_docs))
