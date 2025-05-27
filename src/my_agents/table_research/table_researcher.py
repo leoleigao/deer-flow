@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 from typing import Any
 from jinja2 import Environment, FileSystemLoader
+import types  # For SimpleNamespace in DummyLLM
 
 try:
     from langgraph.prebuilt import agent_node
@@ -38,6 +39,29 @@ my_agents_env = Environment(
 )
 
 
+# Define DummyLLM for stub mode
+class DummyLLM:
+    async def ainvoke(self, messages: list[dict[str, str]]) -> types.SimpleNamespace:
+        # Extract table_name from system prompt if needed for more dynamic stubs
+        # For now, a generic valid JSON response structure
+        logger.info("[TableResearcher] Using DummyLLM to simulate LLM response.")
+        return types.SimpleNamespace(
+            content=json.dumps(
+                {
+                    "insights": [
+                        "<INSIGHT_1> session_id: Dummy key identifier for user sessions.",
+                        "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.",
+                        "<INSIGHT_3> Dummy data is always fresh!",
+                    ],
+                    "usage_examples": [
+                        "SELECT * FROM {{ table_name }} WHERE dummy_condition = true;",
+                        "-- Another dummy query for {{ table_name }}",
+                    ],
+                }
+            )
+        )
+
+
 @agent_node
 class TableResearcher:
     """Node for extracting insights from table documentation."""
@@ -46,7 +70,16 @@ class TableResearcher:
         conf = load_yaml_config(str(Path("conf.d/table_research.yaml")))
         self.cfg = conf.get("table_research", {})
         self.search = GleanSearch()
-        self.llm = ChatOpenAI(**self.cfg.get("llm", {}))
+
+        if self.cfg.get("glean", {}).get("use_stub", True):
+            logger.info(
+                "[TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true."
+            )
+            self.llm = DummyLLM()
+        else:
+            logger.info("[TableResearcher] Initializing with real ChatOpenAI.")
+            self.llm = ChatOpenAI(**self.cfg.get("llm", {}))
+
         self.semaphore = asyncio.Semaphore(int(os.getenv("LLM_PAR", 4)))
         self._logged_stub = False
 
@@ -81,6 +114,9 @@ class TableResearcher:
                 resp = await self.llm.ainvoke(messages)
                 try:
                     content = resp.content
+                    logger.info(
+                        f"[TableResearcher] Raw LLM content for chunk: {content}"
+                    )
                     # Remove markdown code blocks if present
                     if content.startswith("```json"):
                         content = content[7:]
@@ -89,13 +125,22 @@ class TableResearcher:
                     if content.endswith("```"):
                         content = content[:-3]
                     content = content.strip()
-                    return json.loads(content)
-                except Exception:
+                    parsed_output = json.loads(content)
+                    logger.info(
+                        f"[TableResearcher] Parsed LLM output for chunk: {parsed_output}"
+                    )
+                    return parsed_output
+                except Exception as e:
+                    logger.error(
+                        f"[TableResearcher] Error parsing LLM output: {e}. Raw content: {content}"
+                    )
                     return {"insights": [], "usage_examples": []}
 
         outputs = await asyncio.gather(*(run_chunk(c) for _, _, c in chunks))
         aggregated = merge_insights(outputs, docs)
+        logger.info(f"[TableResearcher] Aggregated insights: {aggregated}")
         report_parts = self._derive_report_parts(aggregated)
+        logger.info(f"[TableResearcher] Derived report parts: {report_parts}")
 
         return {
             "glean_docs": docs,

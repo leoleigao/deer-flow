@@ -21,7 +21,11 @@ try:
 except Exception:  # pragma: no cover - fallback when langgraph not installed
     AgentState = dict  # type: ignore[misc, assignment]
 
+# For real LLM
 from langchain_openai import ChatOpenAI
+
+# Reuse DummyLLM from TableResearcher to avoid real API calls when USE_GLEAN_STUB=true
+from .table_researcher import DummyLLM
 
 from src.config.loader import load_yaml_config
 from .utils import log_stub_once
@@ -44,7 +48,15 @@ class TablePlanner:
     def __init__(self) -> None:
         conf = load_yaml_config(str(Path("conf.d/table_research.yaml")))
         self.cfg = conf.get("table_research", {})
-        self.llm = ChatOpenAI(**self.cfg.get("llm", {}))
+        # If running in stub mode, use DummyLLM to avoid external API calls
+        if self.cfg.get("glean", {}).get("use_stub", True):
+            logger.info(
+                "[TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true."
+            )
+            self.llm = DummyLLM()
+        else:
+            logger.info("[TablePlanner] Initializing with real ChatOpenAI.")
+            self.llm = ChatOpenAI(**self.cfg.get("llm", {}))
         self._logged = False
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:

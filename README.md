@@ -144,6 +144,12 @@ bootstrap.bat -d
 
 Open your browser and visit [`http://localhost:3000`](http://localhost:3000) to explore the web UI.
 
+### Table Guide UI
+
+For table analysis and documentation generation, visit [`http://localhost:3000/table-guide`](http://localhost:3000/table-guide). This feature provides an interactive interface for generating comprehensive table documentation using AI-powered research agents.
+
+See the [Table Guide UI Documentation](docs/ui_table_guide.md) for detailed usage instructions.
+
 Explore more details in the [`web`](./web/) directory.
 
 ## Supported Search Engines

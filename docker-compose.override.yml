@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Frontend service for Table Guide UI
+  frontend:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_ENABLE_TABLE_GUIDE_UI=true
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - deer-flow-network
+
+  # Backend service (extends existing configuration)
+  backend:
+    environment:
+      - USE_GLEAN_STUB=true
+      - ENABLE_TABLE_GUIDE_UI=true
+    ports:
+      - "8000:8000"
+    networks:
+      - deer-flow-network
+
+networks:
+  deer-flow-network:
+    driver: bridge 
