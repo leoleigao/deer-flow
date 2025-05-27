@@ -51,4 +51,43 @@ jobs:
       uses: codecov/codecov-action@v4
       with:
         file: ./coverage.xml
-        fail_ci_if_error: true 
+        fail_ci_if_error: true
+
+  frontend-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: web/package-lock.json
+        
+    - name: Install frontend dependencies
+      run: |
+        cd web
+        npm ci
+        
+    - name: Set environment variables
+      run: |
+        echo "ENABLE_TABLE_GUIDE_UI=true" >> $GITHUB_ENV
+        echo "USE_GLEAN_STUB=true" >> $GITHUB_ENV
+        echo "NEXT_PUBLIC_ENABLE_TABLE_GUIDE_UI=true" >> $GITHUB_ENV
+        
+    - name: Run frontend linting
+      run: |
+        cd web
+        npm run lint
+        
+    - name: Run frontend type checking
+      run: |
+        cd web
+        npm run typecheck
+        
+    - name: Build frontend
+      run: |
+        cd web
+        npm run build 
