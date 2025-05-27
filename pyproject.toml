@@ -68,3 +68,6 @@ extend-exclude = '''
 # in the root of the project.
 ^/build/
 '''
+
+[tool.poetry.scripts]
+tdr-table = "my_agents.table_research:cli_main"

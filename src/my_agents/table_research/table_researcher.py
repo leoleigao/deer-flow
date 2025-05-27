@@ -24,6 +24,7 @@ from src.config.loader import load_yaml_config
 from .smart_split import smart_split
 from .merge_insights import merge_insights
 from .tools import GleanSearch
+from .utils import log_stub_once
 from src.prompts.template import apply_prompt_template
 
 logger = logging.getLogger(__name__)
@@ -43,12 +44,7 @@ class TableResearcher:
 
     async def __call__(self, state: AgentState) -> dict[str, Any]:
         if not self._logged_stub:
-            mode = (
-                "stub"
-                if os.getenv("USE_GLEAN_STUB", "true").lower() == "true"
-                else "live"
-            )
-            logger.info(f"Operating in Glean {mode} mode")
+            log_stub_once(logger)
             self._logged_stub = True
 
         table_name = state["table_name"]

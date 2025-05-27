@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 from typing import Any, Mapping
+from .utils import log_stub_once
 
 try:
     from langgraph.prebuilt.chat_agent_executor import AgentState
@@ -39,6 +40,7 @@ class TableReporter:
     """Node to compile research insights into a table guide."""
 
     def __call__(self, state: AgentState | Mapping[str, Any]) -> dict[str, Any]:
+        log_stub_once(logger)
         table_name = state.get("table_name", "unknown")
         locale = state.get("locale", "en-US")
         report_parts = state.get("report_parts")
@@ -77,6 +79,6 @@ class TableReporter:
                 guide += "\n"
 
         result = dict(state)
-        result["table_guide_md"] = guide
+        result["markdown_report"] = guide
         logger.info(f"[Reporter] Assembled guide for {table_name} ({len(guide)} chars)")
         return result
