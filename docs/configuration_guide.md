@@ -27,10 +27,26 @@ You can switch the model in use by modifying the `conf.yaml` file in the root di
 
 ---
 
-### How to use OpenAI-Compatible models?
+### How to use OpenAI and OpenAI-Compatible models?
 
-DeerFlow supports integration with OpenAI-Compatible models, which are models that implement the OpenAI API specification. This includes various open-source and commercial models that provide API endpoints compatible with the OpenAI format. You can refer to [litellm OpenAI-Compatible](https://docs.litellm.ai/docs/providers/openai_compatible) for detailed documentation.
-The following is a configuration example of `conf.yaml` for using OpenAI-Compatible models:
+DeerFlow supports integration with OpenAI's official API and other OpenAI-Compatible models (models that implement the OpenAI API specification). This includes various open-source and commercial models that provide API endpoints compatible with the OpenAI format. You can refer to [litellm OpenAI-Compatible](https://docs.litellm.ai/docs/providers/openai_compatible) for detailed documentation on compatible services.
+
+**Using OpenAI API Directly (Recommended for most OpenAI users):**
+
+The `conf.yaml.example` file is pre-configured to use OpenAI's API directly. Simply copy it to `conf.yaml` and replace `xxxx` with your actual OpenAI API key.
+
+```yaml
+# Example for using OpenAI API directly (default in conf.yaml.example)
+BASIC_MODEL:
+  base_url: "https://api.openai.com/v1" # OpenAI's official API endpoint
+  model: "gpt-3.5-turbo"                # Or any other OpenAI model like gpt-4, gpt-4o
+  temperature: 0.1                      # Optional: Adjusts randomness, 0.1 is for more deterministic output
+  api_key: xxxx                         # Replace with your actual OpenAI API key
+```
+
+**Using Other OpenAI-Compatible Models:**
+
+If you are using a different service that provides an OpenAI-compatible endpoint, you can configure it as follows. The examples below show configurations for various providers. Remember to replace `YOUR_API_KEY` with your actual key for the respective service.
 
 ```yaml
 # An example of Doubao models served by VolcEngine
@@ -49,7 +65,7 @@ BASIC_MODEL:
 BASIC_MODEL:
   base_url: "https://api.deepseek.com"
   model: "deepseek-chat"
-  api_key: YOU_API_KEY
+  api_key: YOUR_API_KEY
 
 # An example of Google Gemini models using OpenAI-Compatible interface
 BASIC_MODEL:
