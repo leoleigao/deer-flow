@@ -27,3 +27,7 @@ coverage.xml
 coverage/
 validate_local_env.py
 merge_tdr_config.py
+
+# Log files
+*.log
+fastapi_debug.log
