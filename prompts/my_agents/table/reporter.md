@@ -1,12 +1,33 @@
 # Overview
-Provide a short introduction for **demo.Table** using en-US.
+This guide provides documentation for the **{{ table_name }}** table.
 
-# Key Columns
-Summarise doc_insights about important fields.
+{% if key_columns %}
+## Key Columns
+{% for column in key_columns %}
+- {{ column }}
+{% endfor %}
+{% endif %}
 
-# Governance Notes
-Include any policies or warnings found in doc_insights.
+{% if business_meanings %}
+## Business Context
+{% for meaning in business_meanings %}
+- {{ meaning }}
+{% endfor %}
+{% endif %}
 
-# Sample Queries
-Share concise SQL examples or links referenced in doc_insights.
+{% if gotchas %}
+## Governance Notes
+{% for gotcha in gotchas %}
+- {{ gotcha }}
+{% endfor %}
+{% endif %}
+
+{% if sample_queries %}
+## Sample Queries
+{% for query in sample_queries %}
+```sql
+{{ query }}
+```
+{% endfor %}
+{% endif %}
 

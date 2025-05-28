@@ -1,128 +1,248 @@
-2025-05-26 22:51:04,743 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 22:51:04,895 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
-2025-05-26 22:51:05,141 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
-2025-05-26 22:52:21,059 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 22:52:21,168 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:52:21,171 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
-2025-05-26 22:52:21,465 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
-2025-05-26 22:54:26,816 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 22:54:26,816 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:26,816 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:26,820 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
-2025-05-26 22:54:26,821 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 22:54:26,823 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:26,824 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 22:54:26,825 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.01s
-2025-05-26 22:54:31,308 - tdr.table_graph - INFO - Starting graph for finance.InvoiceItem (max_docs=12, use_stub=true)
-2025-05-26 22:54:31,308 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:31,309 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:31,310 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:31,311 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:31,311 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:31,311 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:31,311 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 22:54:31,312 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:31,313 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for finance.InvoiceItem (293 chars)
-2025-05-26 22:54:31,315 - tdr.table_graph - INFO - Generated guide for finance.InvoiceItem in 0.00s
-2025-05-26 22:54:36,335 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 22:54:36,335 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:36,335 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 22:54:36,337 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 22:54:36,338 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 22:54:36,339 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 22:54:36,339 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.00s
-2025-05-26 23:01:56,531 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 23:01:56,531 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:01:56,531 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:01:56,537 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
-2025-05-26 23:01:56,538 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:01:56,540 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:01:56,541 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 23:01:56,541 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:01:56,543 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 23:01:56,545 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.01s
-2025-05-26 23:02:48,999 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 23:02:48,999 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:02:48,999 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:02:49,001 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 23:02:49,003 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:02:49,005 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 23:02:49,007 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.01s
-2025-05-26 23:03:54,931 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 23:03:54,931 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:03:54,931 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:03:54,933 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:03:54,934 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:03:54,935 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 23:03:54,935 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:03:54,935 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 23:03:54,936 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.00s
-2025-05-26 23:06:36,967 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
-2025-05-26 23:06:36,967 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:06:36,968 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing with DummyLLM due to USE_GLEAN_STUB=true.
-2025-05-26 23:06:36,969 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Using DummyLLM to simulate LLM response.
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {"insights": ["<INSIGHT_1> session_id: Dummy key identifier for user sessions.", "<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.", "<INSIGHT_3> Dummy data is always fresh!"], "usage_examples": ["SELECT * FROM {{ table_name }} WHERE dummy_condition = true;", "-- Another dummy query for {{ table_name }}"]}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Dummy key identifier for user sessions.', '<INSIGHT_2> event.FunnelStep is often joined with other tables for dummy analysis.', '<INSIGHT_3> Dummy data is always fresh!'], 'usage_examples': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}'], 'freshness_sla': 'cold'}
-2025-05-26 23:06:36,971 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Dummy key identifier for user sessions.'], 'business_meanings': ['event.FunnelStep is often joined with other tables for dummy analysis.'], 'gotchas': ['Dummy data is always fresh!'], 'sample_queries': ['SELECT * FROM {{ table_name }} WHERE dummy_condition = true;', '-- Another dummy query for {{ table_name }}']}
-2025-05-26 23:06:36,973 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
-2025-05-26 23:06:36,974 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 0.01s
+
+2025-05-27 21:56:15,891 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
+2025-05-27 21:56:15,891 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 21:56:15,923 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 21:56:15,927 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
+2025-05-27 21:56:17,752 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:56:18,982 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:56:18,983 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies",
+    "<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used or transformed",
+    "<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking changes"
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 21:56:18,983 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used or transformed', '<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking changes'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 21:56:19,101 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:56:19,108 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session ID associated with the funnel step event. It is crucial for tracking user sessions and their progression through the funnel.",
+    "<INSIGHT_2> step: Indicates the step number within the funnel. This column is essential for analyzing the sequence of steps users take in the funnel and identifying drop-off points.",
+    "<INSIGHT_3> timestamp: Records the time when the funnel step event occurred. It is important for analyzing the time taken by users to move through different steps of the funnel and for time-based analysis.",
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 21:56:19,108 - src.my_agents.table_research.table_researcher - ERROR - [TableResearcher] Error parsing LLM output: Expecting value: line 6 column 3 (char 601). Raw content: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session ID associated with the funnel step event. It is crucial for tracking user sessions and their progression through the funnel.",
+    "<INSIGHT_2> step: Indicates the step number within the funnel. This column is essential for analyzing the sequence of steps users take in the funnel and identifying drop-off points.",
+    "<INSIGHT_3> timestamp: Records the time when the funnel step event occurred. It is important for analyzing the time taken by users to move through different steps of the funnel and for time-based analysis.",
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 21:56:19,462 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:56:19,468 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> step_id: unique identifier for each step in the funnel and crucial for tracking user progression",
+    "<INSIGHT_2> funnel_id: identifies the specific funnel to which the step belongs, aiding in analyzing user behavior within a defined sequence",
+    "<INSIGHT_3> position: indicates the order of the step within the funnel, essential for understanding the sequence of actions users take"
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'",
+    "-- Retrieve all steps for a specific funnel",
+    "SELECT * FROM event.FunnelStep WHERE position = 1",
+    "-- Find the first step in all funnels"
+  ]
+}
+2025-05-27 21:56:19,468 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> step_id: unique identifier for each step in the funnel and crucial for tracking user progression', '<INSIGHT_2> funnel_id: identifies the specific funnel to which the step belongs, aiding in analyzing user behavior within a defined sequence', '<INSIGHT_3> position: indicates the order of the step within the funnel, essential for understanding the sequence of actions users take'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1', '-- Find the first step in all funnels']}
+2025-05-27 21:56:19,468 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> step_id: unique identifier for each step in the funnel and crucial for tracking user progression', '<INSIGHT_2> funnel_id: identifies the specific funnel to which the step belongs, aiding in analyzing user behavior within a defined sequence', '<INSIGHT_3> position: indicates the order of the step within the funnel, essential for understanding the sequence of actions users take', '<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used or transformed', '<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking changes'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1', '-- Find the first step in all funnels', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query'], 'freshness_sla': 'cold'}
+2025-05-27 21:56:19,468 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['step_id: unique identifier for each step in the funnel and crucial for tracking user progression', 'upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies'], 'business_meanings': ['funnel_id: identifies the specific funnel to which the step belongs, aiding in analyzing user behavior within a defined sequence', 'downstream: List of tables that are derived from the FunnelStep table, showing where its data is used or transformed'], 'gotchas': ['position: indicates the order of the step within the funnel, essential for understanding the sequence of actions users take', 'data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking changes'], 'sample_queries': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1', '-- Find the first step in all funnels', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 21:56:19,470 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
+2025-05-27 21:56:19,470 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 3.54s
+2025-05-27 21:57:16,555 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
+2025-05-27 21:57:16,555 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 21:57:16,555 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 21:57:18,066 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:57:19,603 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:57:19,605 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies",
+    "<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or reporting",
+    "<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline"
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 21:57:19,605 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or reporting', '<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 21:57:19,614 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:57:19,617 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.",
+    "<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.",
+    "<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps and analyzing drop-off rates.",
+    "<INSIGHT_4> action: Describes the action associated with the step. This column provides insights into user behavior at each step of the funnel."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'",
+    "SELECT step_id, position, action FROM event.FunnelStep ORDER BY position"
+  ]
+}
+2025-05-27 21:57:19,617 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', '<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', '<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps and analyzing drop-off rates.', '<INSIGHT_4> action: Describes the action associated with the step. This column provides insights into user behavior at each step of the funnel.'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", 'SELECT step_id, position, action FROM event.FunnelStep ORDER BY position']}
+2025-05-27 21:57:20,215 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 21:57:20,216 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session ID associated with the event, crucial for tracking user sessions and behavior",
+    "<INSIGHT_1> step: Indicates the step number in the funnel process, essential for analyzing user progression through the funnel",
+    "<INSIGHT_1> timestamp: Records the time of the step event, important for analyzing time-based trends and sequences"
+    "<INSIGHT_2> business_context: The table captures events related to funnel steps, allowing analysis of user progression through a defined sequence of steps or stages.",
+    "<INSIGHT_2> common usage patterns: Analyzing conversion rates, identifying drop-off points in the funnel, optimizing user journeys, and evaluating the effectiveness of marketing campaigns.",
+    "<INSIGHT_3> gotcha: Ensure that the session_id is consistent and accurately represents unique user sessions to avoid skewed analysis results. Regularly check for duplicate or stale data in the table to maintain data quality and accuracy."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE session_id = '12345' AND step = 2",
+    "SELECT step, COUNT(*) FROM event.FunnelStep GROUP BY step"
+  ]
+}
+2025-05-27 21:57:20,216 - src.my_agents.table_research.table_researcher - ERROR - [TableResearcher] Error parsing LLM output: Expecting ',' delimiter: line 6 column 5 (char 409). Raw content: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session ID associated with the event, crucial for tracking user sessions and behavior",
+    "<INSIGHT_1> step: Indicates the step number in the funnel process, essential for analyzing user progression through the funnel",
+    "<INSIGHT_1> timestamp: Records the time of the step event, important for analyzing time-based trends and sequences"
+    "<INSIGHT_2> business_context: The table captures events related to funnel steps, allowing analysis of user progression through a defined sequence of steps or stages.",
+    "<INSIGHT_2> common usage patterns: Analyzing conversion rates, identifying drop-off points in the funnel, optimizing user journeys, and evaluating the effectiveness of marketing campaigns.",
+    "<INSIGHT_3> gotcha: Ensure that the session_id is consistent and accurately represents unique user sessions to avoid skewed analysis results. Regularly check for duplicate or stale data in the table to maintain data quality and accuracy."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE session_id = '12345' AND step = 2",
+    "SELECT step, COUNT(*) FROM event.FunnelStep GROUP BY step"
+  ]
+}
+2025-05-27 21:57:20,216 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', '<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', '<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps and analyzing drop-off rates.', '<INSIGHT_4> action: Describes the action associated with the step. This column provides insights into user behavior at each step of the funnel.', '<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or reporting', '<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", 'SELECT step_id, position, action FROM event.FunnelStep ORDER BY position', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query'], 'freshness_sla': 'cold'}
+2025-05-27 21:57:20,216 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', 'upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies'], 'business_meanings': ['funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', 'downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or reporting'], 'gotchas': ['position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps and analyzing drop-off rates.', 'data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'sample_queries': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'example_funnel_id'", 'SELECT step_id, position, action FROM event.FunnelStep ORDER BY position', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 21:57:20,218 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (293 chars)
+2025-05-27 21:57:20,219 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 3.66s
+2025-05-27 22:00:54,532 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
+2025-05-27 22:00:54,532 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 22:00:54,557 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 22:00:54,560 - src.my_agents.table_research.table_planner - INFO - Operating in Glean stub mode
+2025-05-27 22:00:56,236 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:00:57,817 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:00:57,818 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies",
+    "<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used and how it flows downstream",
+    "<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline"
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 22:00:57,818 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used and how it flows downstream', '<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 22:00:58,143 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:00:58,144 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.",
+    "<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.",
+    "<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps in the funnel analysis."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE funnel_id = 'xyz';",
+    "-- Retrieve all steps for a specific funnel",
+    "SELECT * FROM event.FunnelStep WHERE position = 1;",
+    "-- Retrieve the first step in all funnels"
+  ]
+}
+2025-05-27 22:00:58,144 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', '<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', '<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps in the funnel analysis.'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'xyz';", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1;', '-- Retrieve the first step in all funnels']}
+2025-05-27 22:00:58,830 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:00:58,831 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session associated with the funnel step event. It is crucial for tracking user journeys and analyzing behavior across multiple steps.",
+    "<INSIGHT_1> step: Indicates the specific step in the funnel sequence. This column is essential for understanding the progression of users through the defined steps.",
+    "<INSIGHT_1> timestamp: Records the time when the funnel step event occurred. It is important for analyzing the timing and duration between steps in the funnel process."
+    "<INSIGHT_2> business_context: The table captures events related to user interactions in a funnel process, allowing analysis of user behavior and conversion rates through different steps.",
+    "<INSIGHT_2> common_usage: This table is commonly used to track and optimize conversion funnels, identify drop-off points, and improve user experience by analyzing step-by-step interactions.",
+    "<INSIGHT_3> gotcha: Ensure that the timestamp data is consistent and accurate to avoid skewed analysis results. Incomplete or incorrect timestamps can impact the understanding of user behavior and funnel performance."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE session_id = '12345'",
+    "SELECT step, COUNT(*) FROM event.FunnelStep GROUP BY step"
+  ]
+}
+2025-05-27 22:00:58,831 - src.my_agents.table_research.table_researcher - ERROR - [TableResearcher] Error parsing LLM output: Expecting ',' delimiter: line 6 column 5 (char 548). Raw content: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session associated with the funnel step event. It is crucial for tracking user journeys and analyzing behavior across multiple steps.",
+    "<INSIGHT_1> step: Indicates the specific step in the funnel sequence. This column is essential for understanding the progression of users through the defined steps.",
+    "<INSIGHT_1> timestamp: Records the time when the funnel step event occurred. It is important for analyzing the timing and duration between steps in the funnel process."
+    "<INSIGHT_2> business_context: The table captures events related to user interactions in a funnel process, allowing analysis of user behavior and conversion rates through different steps.",
+    "<INSIGHT_2> common_usage: This table is commonly used to track and optimize conversion funnels, identify drop-off points, and improve user experience by analyzing step-by-step interactions.",
+    "<INSIGHT_3> gotcha: Ensure that the timestamp data is consistent and accurate to avoid skewed analysis results. Incomplete or incorrect timestamps can impact the understanding of user behavior and funnel performance."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE session_id = '12345'",
+    "SELECT step, COUNT(*) FROM event.FunnelStep GROUP BY step"
+  ]
+}
+2025-05-27 22:00:58,831 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', '<INSIGHT_2> funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', '<INSIGHT_3> position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps in the funnel analysis.', '<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used and how it flows downstream', '<INSIGHT_3> data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'usage_examples': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'xyz';", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1;', '-- Retrieve the first step in all funnels', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query'], 'freshness_sla': 'cold'}
+2025-05-27 22:00:58,831 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['step_id: The unique identifier for each step in the funnel. This column is crucial for tracking user progression through the funnel.', 'upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies'], 'business_meanings': ['funnel_id: Identifies the specific funnel to which the step belongs. Understanding the funnel_id helps in analyzing the performance of different funnels.', 'downstream: List of tables that are derived from the FunnelStep table, showing where its data is used and how it flows downstream'], 'gotchas': ['position: Indicates the order of the step within the funnel. It is essential for correctly sequencing the steps in the funnel analysis.', 'data lineage: Understanding the data lineage helps in tracing data origins, transformations, and impacts across the data pipeline'], 'sample_queries': ["SELECT * FROM event.FunnelStep WHERE funnel_id = 'xyz';", '-- Retrieve all steps for a specific funnel', 'SELECT * FROM event.FunnelStep WHERE position = 1;', '-- Retrieve the first step in all funnels', 'SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 22:00:58,834 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (1288 chars)
+2025-05-27 22:00:58,835 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 4.28s
+2025-05-27 22:01:14,427 - tdr.table_graph - INFO - Starting graph for event.FunnelStep (max_docs=12, use_stub=true)
+2025-05-27 22:01:14,427 - src.my_agents.table_research.table_planner - INFO - [TablePlanner] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 22:01:14,428 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Initializing LLM via get_llm_by_type('basic').
+2025-05-27 22:01:16,050 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:01:17,265 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:01:17,266 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> session_id: Represents the session ID associated with the event, allowing tracking of user sessions and their progression through the funnel steps.",
+    "<INSIGHT_2> step: Indicates the step number in the funnel, providing insights into the sequence of actions or stages completed by users.",
+    "<INSIGHT_3> timestamp: Records the time when the step event occurred, enabling analysis of time-based trends and user behavior over time."
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 22:01:17,266 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> session_id: Represents the session ID associated with the event, allowing tracking of user sessions and their progression through the funnel steps.', '<INSIGHT_2> step: Indicates the step number in the funnel, providing insights into the sequence of actions or stages completed by users.', '<INSIGHT_3> timestamp: Records the time when the step event occurred, enabling analysis of time-based trends and user behavior over time.'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 22:01:17,371 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:01:17,376 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> step_id: unique identifier for each step in the funnel and crucial for tracking user progression",
+    "<INSIGHT_2> FunnelStep table captures the sequence of steps users take in a funnel, providing insights into user behavior and conversion rates.",
+    "<INSIGHT_3> Ensure that step_id is used correctly to track user progression accurately. Stale data in this table can lead to incorrect funnel analysis.",
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE step_id = '123'",
+    "-- Example query to retrieve data for a specific funnel step"
+  ]
+}
+2025-05-27 22:01:17,376 - src.my_agents.table_research.table_researcher - ERROR - [TableResearcher] Error parsing LLM output: Expecting value: line 6 column 3 (char 446). Raw content: {
+  "insights": [
+    "<INSIGHT_1> step_id: unique identifier for each step in the funnel and crucial for tracking user progression",
+    "<INSIGHT_2> FunnelStep table captures the sequence of steps users take in a funnel, providing insights into user behavior and conversion rates.",
+    "<INSIGHT_3> Ensure that step_id is used correctly to track user progression accurately. Stale data in this table can lead to incorrect funnel analysis.",
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE step_id = '123'",
+    "-- Example query to retrieve data for a specific funnel step"
+  ]
+}
+2025-05-27 22:01:17,521 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 22:01:17,525 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Raw LLM content for chunk: {
+  "insights": [
+    "<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies",
+    "<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or processing",
+    "<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking transformations"
+  ],
+  "usage_examples": [
+    "SELECT * FROM event.FunnelStep WHERE ...",
+    "-- Another example query"
+  ]
+}
+2025-05-27 22:01:17,525 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Parsed LLM output for chunk: {'insights': ['<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or processing', '<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking transformations'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 22:01:17,525 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Aggregated insights: {'insights': ['<INSIGHT_1> session_id: Represents the session ID associated with the event, allowing tracking of user sessions and their progression through the funnel steps.', '<INSIGHT_2> step: Indicates the step number in the funnel, providing insights into the sequence of actions or stages completed by users.', '<INSIGHT_3> timestamp: Records the time when the step event occurred, enabling analysis of time-based trends and user behavior over time.', '<INSIGHT_1> upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies', '<INSIGHT_2> downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or processing', '<INSIGHT_3> data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking transformations'], 'usage_examples': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query'], 'freshness_sla': 'cold'}
+2025-05-27 22:01:17,525 - src.my_agents.table_research.table_researcher - INFO - [TableResearcher] Derived report parts: {'key_columns': ['session_id: Represents the session ID associated with the event, allowing tracking of user sessions and their progression through the funnel steps.', 'upstream: List of tables that feed into the FunnelStep table, indicating the source of data and dependencies'], 'business_meanings': ['step: Indicates the step number in the funnel, providing insights into the sequence of actions or stages completed by users.', 'downstream: List of tables that are derived from the FunnelStep table, showing where its data is used for further analysis or processing'], 'gotchas': ['timestamp: Records the time when the step event occurred, enabling analysis of time-based trends and user behavior over time.', 'data lineage: Understanding the data flow from raw data to analysis results is crucial for maintaining data integrity and tracking transformations'], 'sample_queries': ['SELECT * FROM event.FunnelStep WHERE ...', '-- Another example query']}
+2025-05-27 22:01:17,529 - src.my_agents.table_research.table_reporter - INFO - [Reporter] Assembled guide for event.FunnelStep (1051 chars)
+2025-05-27 22:01:17,529 - tdr.table_graph - INFO - Generated guide for event.FunnelStep in 3.10s
