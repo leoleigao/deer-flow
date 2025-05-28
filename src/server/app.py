@@ -29,6 +29,7 @@ from src.server.chat_request import (
 from src.server.mcp_request import MCPServerMetadataRequest, MCPServerMetadataResponse
 from src.server.mcp_utils import load_mcp_tools
 from src.tools import VolcengineTTS
+from api.table_guide import table_guide_router
 
 logger = logging.getLogger(__name__)
 
@@ -46,6 +47,9 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
+
+# Include routers
+app.include_router(table_guide_router, prefix="/api")
 
 graph = build_graph_with_memory()
 
